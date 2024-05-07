@@ -16,6 +16,7 @@ import {
   MenuStyled,
   ButtonCloseStyled,
   ImageStyled,
+  DivInfiniteScrollBlock,
 } from './styled';
 import { Typography } from '../../../styles/typography';
 
@@ -70,7 +71,9 @@ function Menu({ openMenu, closeMenu }: MenuProps) {
           </DivContactStyled>
         </DivLogoStyled>
 
-        <InfiniteScroll closeMenu={closeMenu} />
+        <DivInfiniteScrollBlock>
+          <InfiniteScroll closeMenu={closeMenu} />
+        </DivInfiniteScrollBlock>
 
         <DivMenuStyled>
           <DivTextMenuStyled>

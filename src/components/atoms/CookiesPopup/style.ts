@@ -15,8 +15,8 @@ export const TriangleContainer = styled.div`
   // gap: 20px;
   // padding: 60px 18px 28px 18px;
   padding: 60px 29px 28px 29px;
-  position: fixed;
   bottom: -3px;
+  position: relative;
   right: -3px;
   transition: all 0.9s;
   opacity: 0;

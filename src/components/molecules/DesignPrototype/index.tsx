@@ -41,15 +41,15 @@ function DesignPrototype({
       const containerTop = parseInt(container?.top, 10) + window.scrollY;
       const containerBottom = containerTop + parseInt(container?.height, 10);
 
-      if (window.pageYOffset < containerTop) {
+      if (window.scrollY < containerTop) {
         prototypeRef?.current.scroll(0, 0);
         setIsVisible(false);
-      } else if (window.pageYOffset > containerBottom) {
+      } else if (window.scrollY > containerBottom) {
         const scrollY = containerBottom - containerTop;
         prototypeRef.current.scroll(0, scrollY);
         setIsVisible(true);
       } else {
-        const scrollY = window.pageYOffset - containerTop;
+        const scrollY = window.scrollY - containerTop;
         prototypeRef.current?.scroll(0, scrollY);
         setIsVisible(true);
       }

@@ -22,9 +22,10 @@ export const ContainerStyled = styled.div`
 `;
 
 export const DivLogoStyled = styled.div`
+  display: flex;
+  width: 15%;
   padding-left: 28px;
   padding-top: 45px;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: baseline;
@@ -82,12 +83,19 @@ export const DivLineStyled = styled.div`
 
 export const DivMenuStyled = styled.div`
   display: flex;
+  width: 15%;
   padding-right: 28px;
   flex-direction: column;
   justify-content: space-between;
   @media (max-width: 750px) {
     justify-content: flex-start;
   }
+`;
+
+export const DivInfiniteScrollBlock = styled.div`
+  display: flex;
+  width: 70%;
+  justify-content: center;
 `;
 
 export const DivTextMenuStyled = styled.div`

@@ -29,6 +29,16 @@ export const HeaderStyled = styled.header<HeaderProps>`
   }
 `;
 
+export const PopupWrapper = styled.div`
+  position: fixed;
+  bottom: 0;
+  z-index: 999999999;
+  display: grid;
+  flex-direction: column;
+  right: 0;
+  align-items: flex-end;
+`;
+
 export const MainContentStyled = styled.div`
   width: 100%;
   display: flex;

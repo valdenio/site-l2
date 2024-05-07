@@ -12,9 +12,11 @@ import {
   ArrowSpinnerContainerStyled,
   SocialMediaLinkStyled,
   ImageStyled,
+  PopupWrapper,
 } from './styled';
 import { Typography } from '../../../styles/typography';
 import CookiesPopup from '../../atoms/CookiesPopup';
+import WhatsAppButton from '../../atoms/WhatsAppButton';
 
 function Header() {
   const { t } = i18next;
@@ -343,9 +345,11 @@ function Header() {
             </SocialMediaLinkStyled>
           </SocialMediaStyled>
         </FooterContentStyled>
-        {/* <CookiesPopup /> */}
       </HeaderStyled>
-      <CookiesPopup />
+      <PopupWrapper>
+        <WhatsAppButton />
+        <CookiesPopup />
+      </PopupWrapper>
     </>
   );
 }
