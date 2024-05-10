@@ -8,4 +8,6 @@ export const colors = {
   purple: '#5900CC',
   lightGray: '#8E9195',
   secondary1: '#27E5BF',
+  white: '#FFF',
+  offwhite: '#F2F3F4',
 };
