@@ -42,7 +42,7 @@ export default function HeaderOurCareer({
     <>
       <InternalPageHeader internalHeader={deaderProps} />
       <ContainerStyled>
-        <StyledDate>
+        {/* <StyledDate>
           <DivStyledDate>
             <DateStyled key={id}>
               <DivDate>
@@ -114,7 +114,6 @@ export default function HeaderOurCareer({
                 />
               )}
             </div>
-              */}
           </DivStyledDate>
           {isStartDateBeforeThanNow ? (
             <Typography tag="p" color="gray" fontFamily="font2" size="xsmall">
@@ -125,7 +124,7 @@ export default function HeaderOurCareer({
               {t('headerOurCareer.makeYourCandidacy')}
             </Typography>
           )}
-        </StyledDate>
+        </StyledDate> */}
       </ContainerStyled>
     </>
   );

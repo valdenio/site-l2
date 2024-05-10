@@ -53,7 +53,6 @@ import {
 import ServiceComponent, { ServiceComponentProps } from './servicecomponent';
 
 const AssigmentLP: NextPage = () => {
-  const { t } = i18next;
   const language = i18next.language.substring(0, 2);
 
   const [openModal, setOpenModal] = useState(false);
@@ -139,7 +138,7 @@ const AssigmentLP: NextPage = () => {
   ];
 
   useEffect(() => {
-    const nav = document.querySelector('.nav');
+    const nav = document.querySelector('.nav') as HTMLElement;
     nav.style.display = 'none';
 
     if (history.scrollRestoration) {
