@@ -49,22 +49,105 @@ import {
   ModalQRCode,
   ModalCloseButton,
   ModalContentWrapper,
-} from './styled';
+} from '../../../../styles/alocacao-lp-styled';
 import ServiceComponent, { ServiceComponentProps } from './servicecomponent';
 
 const AssigmentLP: NextPage = () => {
   const language = i18next.language.substring(0, 2);
 
+  const areaValues = [
+    {
+      value: 'programação',
+      image: 'area1',
+    },
+    {
+      value: 'front-end',
+      image: 'area2',
+    },
+    {
+      value: 'back-end',
+      image: 'area3',
+    },
+    {
+      value: 'protótipo',
+      image: 'area4',
+    },
+    {
+      value: 'inteligência artificial',
+      image: 'area5',
+    },
+    {
+      value: 'experência do usuário',
+      image: 'area6',
+    },
+    {
+      value: 'design',
+      image: 'area7',
+    },
+    {
+      value: 'segurança de dados',
+      image: 'area8',
+    },
+    {
+      value: 'quality assurance',
+      image: 'area9',
+    },
+    {
+      value: 'marketing',
+      image: 'area10',
+    },
+    {
+      value: 'produto',
+      image: 'area11',
+    },
+    {
+      value: 'engenharia de dados',
+      image: 'area12',
+    },
+  ];
+
+  const placeValues = [
+    {
+      value: 'fintech',
+      image: 'place1',
+    },
+    {
+      value: 'ideia',
+      image: 'place2',
+    },
+    {
+      value: 'startup',
+      image: 'place3',
+    },
+    {
+      value: 'instituição',
+      image: 'place4',
+    },
+    {
+      value: 'empresa',
+      image: 'place5',
+    },
+  ];
+
   const [openModal, setOpenModal] = useState(false);
+  const [areaData, setAreaData] = useState(areaValues[0]);
+  const [placeData, setPlaceData] = useState(placeValues[0]);
 
   const servicesData: ServiceComponentProps[] = [
     {
       title: 'dev. front-end',
       type: 'tecnologia',
       imageSrc: 'service1',
-      peopleQuantity: '14',
+      // peopleQuantity: '14',
       technologiesTitle: 'tecnologias: ',
-      technologies: ['html', 'css', 'javascript', 'react', 'angular', 'python'],
+      technologies: [
+        'html',
+        'css',
+        'javascript',
+        'react',
+        'angular',
+        'flutter',
+      ],
       description:
         // eslint-disable-next-line max-len
         'Implementam a interface visual e interativa de um website ou aplicativo, traduzindo o design em código. Nossos frontends colaboram de perto com designers e devs backend para integrar componentes e garantir a funcionalidade da aplicação.',
@@ -73,20 +156,54 @@ const AssigmentLP: NextPage = () => {
       title: 'dev. back-end',
       type: 'tecnologia',
       imageSrc: 'service2',
-      peopleQuantity: '23',
+      // peopleQuantity: '23',
       technologiesTitle: 'tecnologias: ',
-      technologies: ['html', 'css', 'react', 'python'],
+      technologies: [
+        'java',
+        'python',
+        'node',
+        'spring',
+        'csharp',
+        'sql',
+        'php',
+      ],
       description:
         // eslint-disable-next-line max-len
         'Criam e mantém a lógica e funcionalidade dos servidores e bancos de dados que sustentam as aplicações web e móveis. Desenvolvem APIs, gerenciam dados e garantem a segurança e escalabilidade do sistema.',
     },
     {
+      title: 'dev. fullstack',
+      type: 'tecnologia',
+      imageSrc: 'service3',
+      // peopleQuantity: '23',
+      technologiesTitle: 'tecnologias: ',
+      technologies: [
+        'javascript',
+        'react',
+        'flutter',
+        'angular',
+        'java',
+        'python',
+        'node',
+        'sql',
+      ],
+      description:
+        // eslint-disable-next-line max-len
+        'Desenvolvedor fullstack é um profissional versátil em front-end e back-end, com expertise em HTML, CSS, JavaScript e frameworks como React, Angular ou Vue.js para front-end, e Express.js, Django, Ruby on Rails ou Node.js para back-end. Contribui em todas as fases do desenvolvimento, da concepção à manutenção, sendo essencial em equipes ágeis e projetos eficientes.',
+    },
+    {
       title: 'ux/ui design',
       type: 'design',
-      imageSrc: 'service3',
-      peopleQuantity: '06',
+      imageSrc: 'service4',
+      // peopleQuantity: '06',
       technologiesTitle: 'tecnologias: ',
-      technologies: ['Figma', 'adobePremiere', 'photoshopt', 'illustrator'],
+      technologies: [
+        'figma',
+        'adobePremiere',
+        'photoshop',
+        'illustrator',
+        'corel',
+      ],
       description:
         // eslint-disable-next-line max-len
         'Esse profissional pesquisa, projeta e avalia a experiência do usuário em produtos digitais. Eles colaboram com equipes multidisciplinares para entender as necessidades dos usuários, criar wireframes e protótipos, e realizar testes de usabilidade. Seu objetivo é garantir que os produtos sejam fáceis de usar e eficazes para os usuários.',
@@ -94,10 +211,10 @@ const AssigmentLP: NextPage = () => {
     {
       title: 'eng. e cient. de dados',
       type: 'tecnologia',
-      imageSrc: 'service4',
-      peopleQuantity: '02',
+      imageSrc: 'service5',
+      // peopleQuantity: '02',
       technologiesTitle: 'tecnologias: ',
-      technologies: ['html', 'css', 'react', 'python'],
+      technologies: ['python', 'sql', 'power-bi', 'excel'],
       description:
         // eslint-disable-next-line max-len
         'Responsável por coletar, limpar, analisar e interpretar grandes conjuntos de dados para extrair insights e informar decisões estratégicas. Eles utilizam técnicas estatísticas, aprendizado de máquina e análise de dados para resolver problemas complexos e prever tendências futuras.',
@@ -105,10 +222,10 @@ const AssigmentLP: NextPage = () => {
     {
       title: 'qa',
       type: 'tecnologia',
-      imageSrc: 'service1',
-      peopleQuantity: '02',
+      imageSrc: 'service6',
+      // peopleQuantity: '02',
       technologiesTitle: 'tecnologias: ',
-      technologies: ['html', 'css', 'react', 'python'],
+      technologies: ['junit', 'selenium', 'jasmine', 'postman'],
       description:
         // eslint-disable-next-line max-len
         'Garante a qualidade e a integridade dos produtos de software. Eles realizam testes de software, identificam e relatam defeitos e anomalias, e garantem que os produtos atendam aos requisitos e padrões de qualidade estabelecidos.',
@@ -116,10 +233,10 @@ const AssigmentLP: NextPage = () => {
     {
       title: 'marketing e tráfego',
       type: 'design',
-      imageSrc: 'service2',
-      peopleQuantity: '14',
+      imageSrc: 'service7',
+      // peopleQuantity: '14',
       technologiesTitle: 'tecnologias: ',
-      technologies: ['html', 'css', 'javascript', 'react', 'angular', 'python'],
+      technologies: ['ads', 'hootsuite', 'ganalytics', 'python', 'sql'],
       description:
         // eslint-disable-next-line max-len
         'Desenvolve e implementa estratégias para promover produtos ou serviços, alcançar clientes em potencial e aumentar as vendas. Isso pode incluir atividades como pesquisa de mercado, análise de concorrência, definição de público-alvo, criação de campanhas de publicidade, gestão de redes sociais, SEO (otimização para mecanismos de busca), marketing de conteúdo, email marketing e análise de desempenho das campanhas.',
@@ -127,10 +244,10 @@ const AssigmentLP: NextPage = () => {
     {
       title: 'po/pm',
       type: 'gestão',
-      imageSrc: 'service3',
-      peopleQuantity: '02',
+      imageSrc: 'service8',
+      // peopleQuantity: '02',
       technologiesTitle: 'métodos: ',
-      technologies: ['html', 'css', 'javascript', 'react', 'angular', 'python'],
+      technologies: ['jira', 'scrum', 'power-bi', 'trello'],
       description:
         // eslint-disable-next-line max-len
         'Representam os interesses dos stakeholders e do cliente durante o desenvolvimento do projeto. Eles definem e priorizam os requisitos do projeto, comunicar as necessidades do cliente à equipe de desenvolvimento, garantir a entrega de valor ao cliente em cada incremento do produto, e tomar decisões sobre o escopo e as funcionalidades do projeto.',
@@ -149,6 +266,34 @@ const AssigmentLP: NextPage = () => {
       };
     }
   }, []);
+
+  function setRandomArea() {
+    const indexArea = Math.floor(Math.random() * areaValues.length);
+    const newArea = areaValues[indexArea];
+    if (newArea.value == areaData.value) {
+      setRandomArea();
+    } else {
+      setAreaData(newArea);
+    }
+  }
+
+  function setRandomPlace() {
+    const indexPlace = Math.floor(Math.random() * placeValues.length);
+    const newPlace = placeValues[indexPlace];
+    if (newPlace.value == placeData.value) {
+      setRandomPlace();
+    } else {
+      setPlaceData(newPlace);
+    }
+  }
+
+  useEffect(() => {
+    const changeHeaderData = setTimeout(() => {
+      setRandomArea();
+      setRandomPlace();
+    }, 3000);
+    return () => clearTimeout(changeHeaderData);
+  }, [placeData]);
 
   return (
     <LPage>
@@ -200,15 +345,19 @@ const AssigmentLP: NextPage = () => {
           Alocação <br /> de times
         </TitleS1>
         <SubtitleS1>
-          especialistas
+          especialistas em
           <Pill>
-            <PillImage src="/images/AssignmentsLP/pill1.svg" />
-            ciência de dados
+            <PillImage
+              src={`/images/AssignmentsLP/header-loop/${areaData.image}.png`}
+            />
+            {areaData.value}
           </Pill>
           para sua
           <Pill>
-            fintech
-            <PillImage src="/images/AssignmentsLP/pill2.svg" />
+            {placeData.value}
+            <PillImage
+              src={`/images/AssignmentsLP/header-loop/${placeData.image}.png`}
+            />
           </Pill>
         </SubtitleS1>
         <ContactBar backgroundColor="black">
@@ -240,7 +389,9 @@ const AssigmentLP: NextPage = () => {
         </SubtitleS2>
         <ServicesGrid>
           {servicesData.map((serviceData) => {
-            return <ServiceComponent {...serviceData} />;
+            return (
+              <ServiceComponent key={`${serviceData.title}`} {...serviceData} />
+            );
           })}
         </ServicesGrid>
       </MarginBlock>
@@ -253,9 +404,11 @@ const AssigmentLP: NextPage = () => {
           </FooterTitle>
           <FooterDescription>
             Nosso modelo é diferente, porque entendemos o desafio e cultura da
-            sua empresa antes de recomendar um profissional. <br />
+            sua empresa <BreakLine screen="desktop" /> antes de recomendar um
+            profissional. <br />
             <br /> Afinal, todo time trabalha com uma tecnologia e software
-            gráfico específico, ou mesmo busca determinada personalidade.
+            gráfico específico, <BreakLine screen="desktop" /> ou mesmo busca
+            determinada personalidade.
           </FooterDescription>
         </FooterS1TextWrapper>
 
@@ -316,9 +469,10 @@ const AssigmentLP: NextPage = () => {
           </FooterTitle>
           <FooterDescription>
             Há 7 anos ajudamos grandes bancos e fintechs nacionais a entregarem
-            solução de excelência, conquistando novos cliente e valorizando seus
-            papéis na bolsa de valores. <br /> <br /> Fazemos isso com processo
-            e de modo consistente.
+            solução de excelência, <BreakLine screen="desktop" />
+            conquistando novos cliente e valorizando seus papéis na bolsa de
+            valores. <br /> <br /> Fazemos isso com processo e de modo
+            consistente.
           </FooterDescription>
         </FooterS1TextWrapper>
         <RecentClientsTitle>Clientes recentes</RecentClientsTitle>
@@ -372,7 +526,10 @@ const AssigmentLP: NextPage = () => {
         </LogoGridMobile>
 
         <ContactBar backgroundColor="white">
-          <ContactBarText color="">Fale com nossa comercial</ContactBarText>
+          <ContactBarText color="">
+            Profissionais especializados <BreakLine screen="mobile" /> a partir
+            de R$ 74,80 / hora
+          </ContactBarText>
           <ContactButtonsWrapper>
             <QRCodeButton
               onClick={() => setOpenModal(true)}
@@ -385,7 +542,8 @@ const AssigmentLP: NextPage = () => {
           </ContactButtonsWrapper>
         </ContactBar>
         <SecondaryContactBar backgroundColor="white">
-          Profissionais especializados a partir de R$ 00,00 / hora
+          Profissionais especializados <BreakLine screen="mobile" /> a partir de
+          R$ 74,80 / hora
           <SecondaryWhatsappButton href="https://wa.me/5553991583941?text=Olá pessoal da L2, entro em contato para...">
             <WhatsappIcon src="/images/AssignmentsLP/wpp-icon.svg" />
             Iniciar chat

@@ -12,8 +12,9 @@ export const Lightning = () => {
   const getLeftOf = (id) => document.getElementById(id)?.offsetLeft ?? 0;
   const getWidthOf = (id) => document.getElementById(id)?.offsetWidth ?? 0;
   const getTopOf = (id) =>
-    document.getElementById(id).getBoundingClientRect().top + window.scrollY ??
-    0;
+    // eslint-disable-next-line no-unsafe-optional-chaining
+    document.getElementById(id)?.getBoundingClientRect()?.top +
+      window.scrollY ?? 0;
   const windowWidth = window.innerWidth;
   const containerGutter = 56;
   const containerSize = 1500;
@@ -41,10 +42,10 @@ export const Lightning = () => {
 
     if (mouseAxis.y <= contactPointY) {
       endPosition = { x: contactPointX, y: contactPointY };
-      setLabelSelected(document.getElementById('mailContact').innerText);
+      setLabelSelected(document.getElementById('mailContact')?.innerText);
     } else {
       endPosition = { x: talentPointX, y: talentPointY };
-      setLabelSelected(document.getElementById('mailTalent').innerText);
+      setLabelSelected(document.getElementById('mailTalent')?.innerText);
     }
 
     const sizeX = (mouseAxis.x - endPosition.x) ** 2;
@@ -141,7 +142,8 @@ export const Lightning = () => {
       });
 
       const footerOffset =
-        document.getElementById('footer').getBoundingClientRect().top +
+        // eslint-disable-next-line no-unsafe-optional-chaining
+        document.getElementById('footer')?.getBoundingClientRect()?.top +
         window.scrollY -
         200; // <<- MAGIC NUMBER
       if (pageY >= footerOffset) {
@@ -165,7 +167,8 @@ export const Lightning = () => {
 
       const { pageX, pageY } = el;
       const footerOffset =
-        document.getElementById('footer').getBoundingClientRect().top +
+        // eslint-disable-next-line no-unsafe-optional-chaining
+        document.getElementById('footer')?.getBoundingClientRect()?.top +
         window.scrollY -
         200; // <<- MAGIC NUMBER
       if (pageY >= footerOffset) {

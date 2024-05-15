@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { transform } from 'framer-motion';
 import {
   ServiceBlock,
   ServicePeopleData,
@@ -7,20 +6,20 @@ import {
   ServicePeopleImage,
   ServiceTitle,
   ServiceType,
-  ServicePeoplePill,
+  // ServicePeoplePill,
   ServiceTechnologiesBlock,
   ServiceTechnologiesTitle,
   ServiceTechnologiesImage,
   ServiceDescription,
   ServiceTechnologiesImageWrapper,
   SeeMoreButton,
-} from './styled';
+} from '../../../../styles/alocacao-lp-styled';
 
 export interface ServiceComponentProps {
   title: string;
   type: string;
   imageSrc: string;
-  peopleQuantity: string;
+  // peopleQuantity: string;
   technologies: string[];
   technologiesTitle: string;
   description: string;
@@ -52,19 +51,22 @@ const ServiceComponent = (props: ServiceComponentProps) => {
           src={`/images/AssignmentsLP/${props.imageSrc}.svg`}
         />
         <ServicePeopleData>
+          {/* Removido por decisão do Leroi - Comentando o código pra caso volte
           <ServicePeoplePill>
             <img alt="user-icon" src="/images/AssignmentsLP/user.svg" />
             {props.peopleQuantity}{' '}
-          </ServicePeoplePill>
+          </ServicePeoplePill> */}
           <ServiceTechnologiesBlock>
             <ServiceTechnologiesTitle>
               {props.technologiesTitle}
             </ServiceTechnologiesTitle>
             <ServiceTechnologiesImageWrapper>
-              {props.technologies.map((tech) => {
+              {props.technologies?.map((tech) => {
                 return (
                   <ServiceTechnologiesImage
-                    src={`/assets/icons/technologies/${tech}.svg`}
+                    key={`tech${props.title}${tech}`}
+                    alt={`tech${props.title}${tech}`}
+                    src={`/images/AssignmentsLP/tech-icons/${tech}.png`}
                   />
                 );
               })}
