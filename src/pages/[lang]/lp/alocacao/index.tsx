@@ -258,13 +258,13 @@ const AssigmentLP: NextPage = () => {
     const nav = document.querySelector('.nav') as HTMLElement;
     nav.style.display = 'none';
 
-    if (history.scrollRestoration) {
-      history.scrollRestoration = 'manual';
-    } else {
-      window.onbeforeunload = () => {
-        window.scrollTo(0, 0);
-      };
-    }
+    // if (history.scrollRestoration) {
+    //   history.scrollRestoration = 'manual';
+    // } else {
+    //   window.onbeforeunload = () => {
+    //     window.scrollTo(0, 0);
+    //   };
+    // }
   }, []);
 
   function setRandomArea() {
@@ -365,7 +365,7 @@ const AssigmentLP: NextPage = () => {
           <ContactButtonsWrapper>
             <QRCodeButton
               onClick={() => setOpenModal(true)}
-              src="/images/AssignmentsLP/qrcode-contactbar.svg"
+              src="/images/AssignmentsLP/qrcode-contactbar.png"
             />
             <WhatsappButton href="https://wa.me/5553991583941?text=Olá pessoal da L2, entro em contato para...">
               <WhatsappIcon src="/images/AssignmentsLP/wpp-icon.svg" />
@@ -382,7 +382,9 @@ const AssigmentLP: NextPage = () => {
         </SecondaryContactBar>
 
         {/* LISTA DE PROFISSIONAIS */}
-        <TitleS2>Qual perfil sua empresa busca?</TitleS2>
+        <TitleS2>
+          Qual perfil <BreakLine screen="mobile" /> sua empresa busca?
+        </TitleS2>
         <SubtitleS2>
           Atuamos em todo processo de criação do produto digital, com
           profissionais de todas as senioridades, de júniors a sêniors.
@@ -444,7 +446,7 @@ const AssigmentLP: NextPage = () => {
           <ContactButtonsWrapper>
             <QRCodeButton
               onClick={() => setOpenModal(true)}
-              src="/images/AssignmentsLP/qrcode-contactbar.svg"
+              src="/images/AssignmentsLP/qrcode-contactbar.png"
             />
             <WhatsappButton href="https://wa.me/5553991583941?text=Olá pessoal da L2, entro em contato para...">
               <WhatsappIcon src="/images/AssignmentsLP/wpp-icon.svg" />
@@ -533,7 +535,7 @@ const AssigmentLP: NextPage = () => {
           <ContactButtonsWrapper>
             <QRCodeButton
               onClick={() => setOpenModal(true)}
-              src="/images/AssignmentsLP/qrcode-contactbar.svg"
+              src="/images/AssignmentsLP/qrcode-contactbar-white.png"
             />
             <WhatsappButton href="https://wa.me/5553991583941?text=Olá pessoal da L2, entro em contato para...">
               <WhatsappIcon src="/images/AssignmentsLP/wpp-icon.svg" />

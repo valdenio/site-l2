@@ -27,20 +27,6 @@ export interface ServiceComponentProps {
 
 const ServiceComponent = (props: ServiceComponentProps) => {
   const [seeMore, setSeeMore] = useState(true);
-  const [width, setWidth] = useState(
-    typeof window !== 'undefined' ? window.innerWidth : 1920,
-  );
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
     <ServiceBlock>
@@ -77,25 +63,23 @@ const ServiceComponent = (props: ServiceComponentProps) => {
       <ServiceDescription seeMore={seeMore}>
         {props.description}
       </ServiceDescription>
-      {width <= 700 && (
-        <SeeMoreButton onClick={() => setSeeMore(!seeMore)}>
-          {seeMore ? (
-            <>
-              <img alt="vectordown" src="/images/AssignmentsLP/vector.svg" />
-              Ver mais
-            </>
-          ) : (
-            <>
-              <img
-                style={{ transform: 'rotate(180deg)' }}
-                alt="vectordown"
-                src="/images/AssignmentsLP/vector.svg"
-              />
-              Ver menos
-            </>
-          )}
-        </SeeMoreButton>
-      )}
+      <SeeMoreButton onClick={() => setSeeMore(!seeMore)}>
+        {seeMore ? (
+          <>
+            <img alt="vectordown" src="/images/AssignmentsLP/vector.svg" />
+            Ver mais
+          </>
+        ) : (
+          <>
+            <img
+              style={{ transform: 'rotate(180deg)' }}
+              alt="vectordown"
+              src="/images/AssignmentsLP/vector.svg"
+            />
+            Ver menos
+          </>
+        )}
+      </SeeMoreButton>
     </ServiceBlock>
   );
 };

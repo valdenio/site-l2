@@ -1,4 +1,4 @@
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 import { Typography } from '../../../styles/typography';
 import { ContentStyled, ItemStyled, ContactStyled } from './styled';
 

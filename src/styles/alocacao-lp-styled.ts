@@ -85,7 +85,7 @@ export const ModalResponsibleDescription = styled.div`
   letter-spacing: -0.48px;
 `;
 
-export const ModalResponsibleName = styled.p`
+export const ModalResponsibleName = styled.text`
   font-size: clamp(30px, 8vh, 40px);
   font-style: normal;
   font-weight: 500;
@@ -151,7 +151,7 @@ export const SocialLink = styled.a`
 // Título e Subtítulo
 
 export const TitleS1 = styled.text`
-  font-size: clamp(50px, 8vw, 168px);
+  font-size: clamp(52px, 8vw, 168px);
   font-style: normal;
   font-weight: 700;
   max-width: 50%;
@@ -167,20 +167,21 @@ export const TitleS1 = styled.text`
 export const SubtitleS1 = styled.text`
   display: flex;
   align-items: center;
-  font-size: clamp(20px, 2vw, 40px);
+  font-size: clamp(24px, 2vw, 40px);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: -1.6px;
   gap: 16px;
   margin-top: 40px;
-  margin-bottom: 8vh;
+  margin-bottom: clamp(60px, 8vw, 132px);
 
   @media (max-width: 700px) {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
     margin-top: 16px;
+    margin-bottom: 40px;
   } ;
 `;
 
@@ -200,7 +201,6 @@ export const PillImage = styled.img`
   max-width: 72px;
   max-height: 72px;
   width: 8vw;
-  transition: all 1s ease-in-out;
 `;
 
 // Barra de Contatos
@@ -269,11 +269,15 @@ export const WhatsappButton = styled.a`
   border-radius: 4px;
   padding: 0 clamp(12px, 3vw, 32px);
   gap: 10px;
-  font-size: clamp(10px, 1.8vw, 18px);
+  font-size: clamp(12px, 2vw, 18px);
   font-style: normal;
   font-weight: 900;
   line-height: normal;
   letter-spacing: -0.36px;
+
+  &:hover {
+    background-color: #20bd9d;
+  }
 
   @media (max-width: 700px) {
     height: 70%;
@@ -293,7 +297,7 @@ export const TitleS2 = styled.text`
   font-weight: 700;
   line-height: 90%;
   letter-spacing: clamp(-2px, 1vw, -4px);
-  margin-top: 8vh;
+  margin-top: clamp(60px, 8vw, 132px);
 `;
 
 export const SubtitleS2 = styled.text`
@@ -303,13 +307,14 @@ export const SubtitleS2 = styled.text`
   font-weight: 400;
   line-height: 140%;
   letter-spacing: -0.8px;
-  margin-top: 3vh;
+  margin-top: clamp(12px, 2vw, 24px);
 `;
 
 export const ServicesGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0 10vh;
+  margin-bottom: clamp(25px, 7.5vw, 132px);
 
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
@@ -323,15 +328,20 @@ export const ServiceBlock = styled.div`
 `;
 
 export const ServiceTitle = styled.text`
-  font-size: clamp(30px, 2vw, 40px);
+  font-size: clamp(24px, 2vw, 40px);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: -1.6px;
+  margin-bottom: 8px;
+
+  @media (max-width: 700px) {
+    margin-bottom: 4px;
+  }
 `;
 
 export const ServiceType = styled.text`
-  font-size: clamp(7px, 2vw, 12px);
+  font-size: clamp(8px, 2vw, 12px);
   font-style: normal;
   font-weight: 700;
   line-height: 140%;
@@ -347,10 +357,18 @@ export const ServicePeopleBlock = styled.div`
 `;
 
 export const ServicePeopleImage = styled.img`
-  width: 100px;
-  height: 100px;
   width: 50%;
   height: 100%;
+
+  @media (max-width: 700px) {
+    width: 35%;
+    height: 100%;
+  }
+
+  @media (max-width: 480px) {
+    width: 115px;
+    height: 110px;
+  }
 `;
 
 export const ServicePeopleData = styled.div`
@@ -391,7 +409,7 @@ export const ServiceTechnologiesBlock = styled.div`
 `;
 
 export const ServiceTechnologiesTitle = styled.text`
-  font-size: clamp(7px, 2vw, 12px);
+  font-size: clamp(8px, 2vw, 12px);
   font-style: normal;
   font-weight: 700;
   line-height: 140%;
@@ -427,9 +445,8 @@ export const ServiceDescription = styled.text<{ seeMore: boolean }>`
   }
 `;
 
-export const SeeMoreButton = styled.button`
+export const SeeMoreButton = styled.div`
   color: ${colors.green};
-  display: flex;
   align-items: center;
   gap: 3px;
   text-transform: uppercase;
@@ -443,6 +460,11 @@ export const SeeMoreButton = styled.button`
   border: none;
   margin-top: 4px;
   background-color: ${colors.offwhite};
+  display: none;
+
+  @media (max-width: 700px) {
+    display: flex;
+  }
 `;
 
 // Footer
@@ -450,10 +472,14 @@ export const SeeMoreButton = styled.button`
 export const FooterWrapper = styled.div<{ backgroundColor: string }>`
   background-color: ${colors.purple};
   color: ${colors.white};
-  padding: 10vw 24px 5vw 24px;
+  padding: 10vw 24px 0 24px;
   border-radius: 0 12vw 0 0;
   background-color: ${(props) => colors[props.backgroundColor]};
   display: grid;
+
+  &:first-child {
+    padding: 10vw 24px 0 24px;
+  }
 `;
 
 export const FooterS1TextWrapper = styled.div`
@@ -554,7 +580,7 @@ export const SecondaryWhatsappButton = styled.a`
   border-radius: 4px;
   padding: 8px;
   gap: 10px;
-  font-size: clamp(10px, 1.8vw, 18px);
+  font-size: clamp(12px, 2vw, 18px);
   font-style: normal;
   font-weight: 900;
   line-height: normal;
@@ -628,9 +654,22 @@ export const NavFooter = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px;
   background-color: ${colors.black};
   color: ${colors.white};
+  padding: 56px 24px 35px 24px;
+
+  @media (max-width: 700px) {
+    padding: 46px 24px 24px 24px;
+  }
+`;
+
+export const NavLogoFooter = styled.img`
+  background-color: transparent;
+  max-width: 50px;
+
+  @media (max-width: 700px) {
+    max-width: 35px;
+  }
 `;
 
 export const CopyrightText = styled.text`
